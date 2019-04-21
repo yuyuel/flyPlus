@@ -9,7 +9,7 @@
     <result column="campus" property="campus" jdbcType="VARCHAR" />
     <result column="project_id" property="projectId" jdbcType="INTEGER" />
     <result column="no" property="no" jdbcType="VARCHAR" />
-    <result column="class" property="class" jdbcType="VARCHAR" />
+    <result column="class" property="course" jdbcType="VARCHAR" />
     <result column="classes_size" property="classesSize" jdbcType="VARCHAR" />
     <result column="brithday" property="brithday" jdbcType="INTEGER" />
     <result column="school_id" property="schoolId" jdbcType="INTEGER" />
@@ -19,7 +19,7 @@
     <result column="update_time" property="updateTime" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, sex, phone, campus, project_id, no, class, classes_size, brithday, school_id, 
+    id, name, sex, phone, campus, project_id, no, class, classes_size, brithday, school_id,
     remark, is_del, create_time, update_time
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >

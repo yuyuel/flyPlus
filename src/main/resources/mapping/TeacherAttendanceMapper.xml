@@ -14,11 +14,11 @@
     <result column="update_time" property="updateTime" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, teacher_id, should_arrive, attend_class, leave, late, truancy, leave_early, create_time, 
+    id, teacher_id, should_arrive, attend_class, leave, late, truancy, leave_early, create_time,
     update_time
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from teacher_attendance
     where id = #{id,jdbcType=INTEGER}
@@ -28,14 +28,14 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.yyl.flyplus.model.TeacherAttendance" >
-    insert into teacher_attendance (id, teacher_id, should_arrive, 
-      attend_class, leave, late, 
-      truancy, leave_early, create_time, 
-      update_time)
-    values (#{id,jdbcType=INTEGER}, #{teacherId,jdbcType=INTEGER}, #{shouldArrive,jdbcType=INTEGER}, 
-      #{attendClass,jdbcType=INTEGER}, #{leave,jdbcType=INTEGER}, #{late,jdbcType=INTEGER}, 
-      #{truancy,jdbcType=INTEGER}, #{leaveEarly,jdbcType=INTEGER}, #{createTime,jdbcType=INTEGER}, 
-      #{updateTime,jdbcType=INTEGER})
+    insert into teacher_attendance (id, teacher_id, should_arrive,
+    attend_class, leave, late,
+    truancy, leave_early, create_time,
+    update_time)
+    values (#{id,jdbcType=INTEGER}, #{teacherId,jdbcType=INTEGER}, #{shouldArrive,jdbcType=INTEGER},
+    #{attendClass,jdbcType=INTEGER}, #{leave,jdbcType=INTEGER}, #{late,jdbcType=INTEGER},
+    #{truancy,jdbcType=INTEGER}, #{leaveEarly,jdbcType=INTEGER}, #{createTime,jdbcType=INTEGER},
+    #{updateTime,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.yyl.flyplus.model.TeacherAttendance" >
     insert into teacher_attendance

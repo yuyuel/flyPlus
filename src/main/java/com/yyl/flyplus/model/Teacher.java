@@ -15,7 +15,7 @@ public class Teacher {
 
     private String no;
 
-    private String class;
+    private String course;
 
     private String classesSize;
 
@@ -87,12 +87,12 @@ public class Teacher {
         this.no = no == null ? null : no.trim();
     }
 
-    public String getClass() {
-        return class;
+    public String getCourse() {
+        return course;
     }
 
-    public void setClass(String class) {
-        this.class = class == null ? null : class.trim();
+    public void setCourse(String course) {
+        this.course = course;
     }
 
     public String getClassesSize() {
