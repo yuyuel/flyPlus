@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyl.flyplus.mapper.StudentAttendanceMapper" >
+  <resultMap id="BaseResultMap" type="com.yyl.flyplus.model.StudentAttendance" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="teacher_attendance_id" property="teacherAttendanceId" jdbcType="INTEGER" />
+    <result column="student_name" property="studentName" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="TINYINT" />
+    <result column="roll_call_time" property="rollCallTime" jdbcType="INTEGER" />
+    <result column="student_id" property="studentId" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="INTEGER" />
+    <result column="update_time" property="updateTime" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, teacher_attendance_id, student_name, type, roll_call_time, student_id, create_time, 
+    update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from student_attendance
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from student_attendance
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyl.flyplus.model.StudentAttendance" >
+    insert into student_attendance (id, teacher_attendance_id, student_name, 
+      type, roll_call_time, student_id, 
+      create_time, update_time)
+    values (#{id,jdbcType=INTEGER}, #{teacherAttendanceId,jdbcType=INTEGER}, #{studentName,jdbcType=VARCHAR}, 
+      #{type,jdbcType=TINYINT}, #{rollCallTime,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=INTEGER}, #{updateTime,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyl.flyplus.model.StudentAttendance" >
+    insert into student_attendance
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="teacherAttendanceId != null" >
+        teacher_attendance_id,
+      </if>
+      <if test="studentName != null" >
+        student_name,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="rollCallTime != null" >
+        roll_call_time,
+      </if>
+      <if test="studentId != null" >
+        student_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="teacherAttendanceId != null" >
+        #{teacherAttendanceId,jdbcType=INTEGER},
+      </if>
+      <if test="studentName != null" >
+        #{studentName,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="rollCallTime != null" >
+        #{rollCallTime,jdbcType=INTEGER},
+      </if>
+      <if test="studentId != null" >
+        #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyl.flyplus.model.StudentAttendance" >
+    update student_attendance
+    <set >
+      <if test="teacherAttendanceId != null" >
+        teacher_attendance_id = #{teacherAttendanceId,jdbcType=INTEGER},
+      </if>
+      <if test="studentName != null" >
+        student_name = #{studentName,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="rollCallTime != null" >
+        roll_call_time = #{rollCallTime,jdbcType=INTEGER},
+      </if>
+      <if test="studentId != null" >
+        student_id = #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyl.flyplus.model.StudentAttendance" >
+    update student_attendance
+    set teacher_attendance_id = #{teacherAttendanceId,jdbcType=INTEGER},
+      student_name = #{studentName,jdbcType=VARCHAR},
+      type = #{type,jdbcType=TINYINT},
+      roll_call_time = #{rollCallTime,jdbcType=INTEGER},
+      student_id = #{studentId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyl.flyplus.mapper.CampusMapper" >
+  <resultMap id="BaseResultMap" type="com.yyl.flyplus.model.Campus" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="campus_num" property="campusNum" jdbcType="INTEGER" />
+    <result column="campus_name" property="campusName" jdbcType="VARCHAR" />
+    <result column="principal" property="principal" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="CHAR" />
+    <result column="project_id" property="projectId" jdbcType="VARCHAR" />
+    <result column="campus_level" property="campusLevel" jdbcType="BIT" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="school_id" property="schoolId" jdbcType="INTEGER" />
+    <result column="head_campus" property="headCampus" jdbcType="VARCHAR" />
+    <result column="is_del" property="isDel" jdbcType="BIT" />
+    <result column="create_time" property="createTime" jdbcType="INTEGER" />
+    <result column="update_time" property="updateTime" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, campus_num, campus_name, principal, phone, project_id, campus_level, address, 
+    school_id, head_campus, is_del, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from campus
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from campus
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyl.flyplus.model.Campus" >
+    insert into campus (id, campus_num, campus_name, 
+      principal, phone, project_id, 
+      campus_level, address, school_id, 
+      head_campus, is_del, create_time, 
+      update_time)
+    values (#{id,jdbcType=INTEGER}, #{campusNum,jdbcType=INTEGER}, #{campusName,jdbcType=VARCHAR}, 
+      #{principal,jdbcType=VARCHAR}, #{phone,jdbcType=CHAR}, #{projectId,jdbcType=VARCHAR}, 
+      #{campusLevel,jdbcType=BIT}, #{address,jdbcType=VARCHAR}, #{schoolId,jdbcType=INTEGER}, 
+      #{headCampus,jdbcType=VARCHAR}, #{isDel,jdbcType=BIT}, #{createTime,jdbcType=INTEGER}, 
+      #{updateTime,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyl.flyplus.model.Campus" >
+    insert into campus
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="campusNum != null" >
+        campus_num,
+      </if>
+      <if test="campusName != null" >
+        campus_name,
+      </if>
+      <if test="principal != null" >
+        principal,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="campusLevel != null" >
+        campus_level,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="schoolId != null" >
+        school_id,
+      </if>
+      <if test="headCampus != null" >
+        head_campus,
+      </if>
+      <if test="isDel != null" >
+        is_del,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="campusNum != null" >
+        #{campusNum,jdbcType=INTEGER},
+      </if>
+      <if test="campusName != null" >
+        #{campusName,jdbcType=VARCHAR},
+      </if>
+      <if test="principal != null" >
+        #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="campusLevel != null" >
+        #{campusLevel,jdbcType=BIT},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolId != null" >
+        #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="headCampus != null" >
+        #{headCampus,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=BIT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyl.flyplus.model.Campus" >
+    update campus
+    <set >
+      <if test="campusNum != null" >
+        campus_num = #{campusNum,jdbcType=INTEGER},
+      </if>
+      <if test="campusName != null" >
+        campus_name = #{campusName,jdbcType=VARCHAR},
+      </if>
+      <if test="principal != null" >
+        principal = #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=CHAR},
+      </if>
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="campusLevel != null" >
+        campus_level = #{campusLevel,jdbcType=BIT},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolId != null" >
+        school_id = #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="headCampus != null" >
+        head_campus = #{headCampus,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        is_del = #{isDel,jdbcType=BIT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyl.flyplus.model.Campus" >
+    update campus
+    set campus_num = #{campusNum,jdbcType=INTEGER},
+      campus_name = #{campusName,jdbcType=VARCHAR},
+      principal = #{principal,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=CHAR},
+      project_id = #{projectId,jdbcType=VARCHAR},
+      campus_level = #{campusLevel,jdbcType=BIT},
+      address = #{address,jdbcType=VARCHAR},
+      school_id = #{schoolId,jdbcType=INTEGER},
+      head_campus = #{headCampus,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=BIT},
+      create_time = #{createTime,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
