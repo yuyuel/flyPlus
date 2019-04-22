@@ -190,4 +190,10 @@
     <include refid="Base_Column_List" />
     from inventory
   </select>
+  <select id="selectByNameAndType" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from inventory
+    where name like %#{name,jdbcType=VARCHAR}% and type = #{type,jdbcType=BIT}
+  </select>
 </mapper>

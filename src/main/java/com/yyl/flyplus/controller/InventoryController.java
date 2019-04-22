@@ -30,9 +30,21 @@ public class InventoryController {
     @Autowired
     private InventoryServiceImpl inventoryServiceimpl;
     @ResponseBody
-    @RequestMapping(value = "/show", method= RequestMethod.GET)
+    @RequestMapping(value = "/showInventory", method= RequestMethod.GET)
     @ApiOperation(value="展示库中所有商品,返回类型为List", notes="展示库中所有商品,返回类型为List")
-    public List<Inventory> showInventory(){
+    private List<Inventory> showInventory(){
         return inventoryServiceimpl.showInventory();
+    }
+
+    @RequestMapping(value = "/addInventory", method = RequestMethod.PUT)
+    @ApiOperation(value="上架商品", notes="上架商品")
+    private boolean addInventory(Inventory inventory){
+        return inventoryServiceimpl.addInventory(inventory);
+    }
+
+    @RequestMapping(value = "/queryInventory", method = RequestMethod.GET)
+    @ApiOperation(value="根据name和type查询商品", notes="根据name和type查询商品")
+    private List<Inventory> queryInventory(String name,boolean type){
+        return inventoryServiceimpl.queryInventory(name,type);
     }
 }

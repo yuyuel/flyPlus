@@ -13,6 +13,6 @@ import com.yyl.flyplus.model.Inventory;
 
 public interface InventoryService {
     List<Inventory> showInventory();
-    List<Inventory> addInventory();
-    List<Inventory> queryInventory();
+    boolean addInventory(Inventory inventory);
+    List<Inventory> queryInventory(String name,boolean type);
 }

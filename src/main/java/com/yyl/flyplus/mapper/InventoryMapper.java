@@ -18,4 +18,6 @@ public interface InventoryMapper {
     int updateByPrimaryKey(Inventory record);
 
     List<Inventory> showAll();
+
+    List<Inventory> selectByNameAndType(String name,boolean type);
 }

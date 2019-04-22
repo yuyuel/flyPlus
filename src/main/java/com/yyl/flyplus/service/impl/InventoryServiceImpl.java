@@ -24,12 +24,16 @@ public class InventoryServiceImpl implements InventoryService {
     }
 
     @Override
-    public List<Inventory> addInventory() {
-        return null;
+    public boolean addInventory(Inventory inventory) {
+        if(inventory != null){
+        inventoryMapper.insertSelective(inventory);
+        return true;
+        }
+        return false;
     }
 
     @Override
-    public List<Inventory> queryInventory() {
-        return null;
+    public List<Inventory> queryInventory(String name,boolean type) {
+        return inventoryMapper.selectByNameAndType(name,type);
     }
 }
