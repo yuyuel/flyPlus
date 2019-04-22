@@ -185,4 +185,9 @@
       update_time = #{updateTime,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="showAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from inventory
+  </select>
 </mapper>
